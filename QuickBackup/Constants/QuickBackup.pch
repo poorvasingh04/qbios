@@ -1,0 +1,22 @@
+//
+//  QuickBackup.pch
+//  QuickBackup
+//
+//  Created by Nagarro on 5/21/16.
+//  Copyright © 2016 Nagarro. All rights reserved.
+//
+
+#ifndef QuickBackup_pch
+#define QuickBackup_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "AppConstants.h"
+#import <Contacts/Contacts.h>
+#import "QBAppContext.h"
+#import "QBContact.h"
+#import "QBConnection.h"
+#import "QBAppSettings.h"
+
+#endif /* QuickBackup_pch */

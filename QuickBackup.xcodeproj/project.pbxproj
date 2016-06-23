@@ -1,0 +1,752 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A50270B21CFF151B006F3D93 /* QBSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50270B11CFF151B006F3D93 /* QBSignUpViewController.m */; };
+		A50270B51CFF15AE006F3D93 /* QBSignUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50270B41CFF15AE006F3D93 /* QBSignUpTableViewCell.m */; };
+		A50270B71CFF15B9006F3D93 /* QBSignUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50270B61CFF15B9006F3D93 /* QBSignUpTableViewCell.xib */; };
+		A50270BA1CFF22E6006F3D93 /* QBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50270B91CFF22E6006F3D93 /* QBBaseViewController.m */; };
+		A509E2A41D0FEC8A00282A23 /* QBConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2A31D0FEC8A00282A23 /* QBConnection.m */; };
+		A509E2A71D0FF00900282A23 /* QBLoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2A61D0FF00900282A23 /* QBLoginConnection.m */; };
+		A509E2AA1D1000B500282A23 /* QBPostalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2A91D1000B500282A23 /* QBPostalAddress.m */; };
+		A509E2AD1D10099E00282A23 /* QBContactGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2AC1D10099E00282A23 /* QBContactGroup.m */; };
+		A52B96BE1CF0889C00E9B1B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B96BD1CF0889C00E9B1B6 /* main.m */; };
+		A52B96C11CF0889C00E9B1B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B96C01CF0889C00E9B1B6 /* AppDelegate.m */; };
+		A52B96C71CF0889C00E9B1B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52B96C51CF0889C00E9B1B6 /* Main.storyboard */; };
+		A52B96CC1CF0889C00E9B1B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52B96CB1CF0889C00E9B1B6 /* Assets.xcassets */; };
+		A52B96CF1CF0889D00E9B1B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52B96CD1CF0889D00E9B1B6 /* LaunchScreen.storyboard */; };
+		A52B96DA1CF0889D00E9B1B6 /* QuickBackupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B96D91CF0889D00E9B1B6 /* QuickBackupTests.m */; };
+		A52B96E51CF0889D00E9B1B6 /* QuickBackupUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B96E41CF0889D00E9B1B6 /* QuickBackupUITests.m */; };
+		A52B96FF1CF0A1ED00E9B1B6 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B96F81CF0A1ED00E9B1B6 /* AppConstants.m */; };
+		A52B97001CF0A1ED00E9B1B6 /* QBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B96FD1CF0A1ED00E9B1B6 /* QBLoginViewController.m */; };
+		A52B97031CF0A22F00E9B1B6 /* QBUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B97021CF0A22F00E9B1B6 /* QBUserHomeViewController.m */; };
+		A52B97061CF0A2C200E9B1B6 /* QBAdminHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B97051CF0A2C200E9B1B6 /* QBAdminHomeViewController.m */; };
+		A52B970D1CF0A3B800E9B1B6 /* QBAppUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B970C1CF0A3B800E9B1B6 /* QBAppUser.m */; };
+		A52B97101CF0A41900E9B1B6 /* QBAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B970F1CF0A41900E9B1B6 /* QBAppContext.m */; };
+		A52B97131CF0A48E00E9B1B6 /* QBAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B97121CF0A48E00E9B1B6 /* QBAppSettings.m */; };
+		A52B971A1CF0B05900E9B1B6 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52B97191CF0B05900E9B1B6 /* Contacts.framework */; };
+		A52B971D1CF0BC7D00E9B1B6 /* QBContact.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B971C1CF0BC7D00E9B1B6 /* QBContact.m */; };
+		A52B97251CF0C26200E9B1B6 /* QBContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B97231CF0C26200E9B1B6 /* QBContactCell.m */; };
+		A52B97261CF0C26200E9B1B6 /* QBContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A52B97241CF0C26200E9B1B6 /* QBContactCell.xib */; };
+		A52B972A1CF0C49B00E9B1B6 /* QBContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B97291CF0C49B00E9B1B6 /* QBContactView.m */; };
+		A52B972C1CF0C4A600E9B1B6 /* QBContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A52B972B1CF0C4A600E9B1B6 /* QBContactView.xib */; };
+		A553AE571D15655D00D04930 /* QBUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A553AE551D15655D00D04930 /* QBUserCell.m */; };
+		A553AE581D15655D00D04930 /* QBUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A553AE561D15655D00D04930 /* QBUserCell.xib */; };
+		A553AE5C1D156BF000D04930 /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = A553AE5A1D156BF000D04930 /* tick.png */; };
+		A553AE5D1D156BF000D04930 /* tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A553AE5B1D156BF000D04930 /* tick@2x.png */; };
+		A553AE601D15933D00D04930 /* contactIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A553AE5E1D15933D00D04930 /* contactIcon.png */; };
+		A553AE611D15933D00D04930 /* contactIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A553AE5F1D15933D00D04930 /* contactIcon@2x.png */; };
+		A5B196951D0D8C0E00F81F9F /* QBContactLabelValue.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B196941D0D8C0E00F81F9F /* QBContactLabelValue.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A52B96D61CF0889D00E9B1B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A52B96B11CF0889C00E9B1B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A52B96B81CF0889C00E9B1B6;
+			remoteInfo = QuickBackup;
+		};
+		A52B96E11CF0889D00E9B1B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A52B96B11CF0889C00E9B1B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A52B96B81CF0889C00E9B1B6;
+			remoteInfo = QuickBackup;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A50270B01CFF151B006F3D93 /* QBSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBSignUpViewController.h; sourceTree = "<group>"; };
+		A50270B11CFF151B006F3D93 /* QBSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBSignUpViewController.m; sourceTree = "<group>"; };
+		A50270B31CFF15AE006F3D93 /* QBSignUpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBSignUpTableViewCell.h; sourceTree = "<group>"; };
+		A50270B41CFF15AE006F3D93 /* QBSignUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBSignUpTableViewCell.m; sourceTree = "<group>"; };
+		A50270B61CFF15B9006F3D93 /* QBSignUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QBSignUpTableViewCell.xib; sourceTree = "<group>"; };
+		A50270B81CFF22E6006F3D93 /* QBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBBaseViewController.h; sourceTree = "<group>"; };
+		A50270B91CFF22E6006F3D93 /* QBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBBaseViewController.m; sourceTree = "<group>"; };
+		A509E2A21D0FEC8A00282A23 /* QBConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBConnection.h; sourceTree = "<group>"; };
+		A509E2A31D0FEC8A00282A23 /* QBConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBConnection.m; sourceTree = "<group>"; };
+		A509E2A51D0FF00900282A23 /* QBLoginConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBLoginConnection.h; sourceTree = "<group>"; };
+		A509E2A61D0FF00900282A23 /* QBLoginConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBLoginConnection.m; sourceTree = "<group>"; };
+		A509E2A81D1000B500282A23 /* QBPostalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPostalAddress.h; sourceTree = "<group>"; };
+		A509E2A91D1000B500282A23 /* QBPostalAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPostalAddress.m; sourceTree = "<group>"; };
+		A509E2AB1D10099E00282A23 /* QBContactGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBContactGroup.h; sourceTree = "<group>"; };
+		A509E2AC1D10099E00282A23 /* QBContactGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBContactGroup.m; sourceTree = "<group>"; };
+		A52B96B91CF0889C00E9B1B6 /* QuickBackup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickBackup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52B96BD1CF0889C00E9B1B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A52B96BF1CF0889C00E9B1B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A52B96C01CF0889C00E9B1B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A52B96C61CF0889C00E9B1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A52B96CB1CF0889C00E9B1B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A52B96CE1CF0889D00E9B1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A52B96D01CF0889D00E9B1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A52B96D51CF0889D00E9B1B6 /* QuickBackupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickBackupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52B96D91CF0889D00E9B1B6 /* QuickBackupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickBackupTests.m; sourceTree = "<group>"; };
+		A52B96DB1CF0889D00E9B1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A52B96E01CF0889D00E9B1B6 /* QuickBackupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickBackupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52B96E41CF0889D00E9B1B6 /* QuickBackupUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickBackupUITests.m; sourceTree = "<group>"; };
+		A52B96E61CF0889D00E9B1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A52B96F71CF0A1ED00E9B1B6 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		A52B96F81CF0A1ED00E9B1B6 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		A52B96F91CF0A1ED00E9B1B6 /* QuickBackup.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickBackup.pch; sourceTree = "<group>"; };
+		A52B96FC1CF0A1ED00E9B1B6 /* QBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBLoginViewController.h; sourceTree = "<group>"; };
+		A52B96FD1CF0A1ED00E9B1B6 /* QBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBLoginViewController.m; sourceTree = "<group>"; };
+		A52B97011CF0A22F00E9B1B6 /* QBUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBUserHomeViewController.h; sourceTree = "<group>"; };
+		A52B97021CF0A22F00E9B1B6 /* QBUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBUserHomeViewController.m; sourceTree = "<group>"; };
+		A52B97041CF0A2C200E9B1B6 /* QBAdminHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAdminHomeViewController.h; sourceTree = "<group>"; };
+		A52B97051CF0A2C200E9B1B6 /* QBAdminHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAdminHomeViewController.m; sourceTree = "<group>"; };
+		A52B970B1CF0A3B800E9B1B6 /* QBAppUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAppUser.h; sourceTree = "<group>"; };
+		A52B970C1CF0A3B800E9B1B6 /* QBAppUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAppUser.m; sourceTree = "<group>"; };
+		A52B970E1CF0A41900E9B1B6 /* QBAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAppContext.h; sourceTree = "<group>"; };
+		A52B970F1CF0A41900E9B1B6 /* QBAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAppContext.m; sourceTree = "<group>"; };
+		A52B97111CF0A48E00E9B1B6 /* QBAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAppSettings.h; sourceTree = "<group>"; };
+		A52B97121CF0A48E00E9B1B6 /* QBAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAppSettings.m; sourceTree = "<group>"; };
+		A52B97191CF0B05900E9B1B6 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		A52B971B1CF0BC7D00E9B1B6 /* QBContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBContact.h; sourceTree = "<group>"; };
+		A52B971C1CF0BC7D00E9B1B6 /* QBContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBContact.m; sourceTree = "<group>"; };
+		A52B97221CF0C26200E9B1B6 /* QBContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBContactCell.h; sourceTree = "<group>"; };
+		A52B97231CF0C26200E9B1B6 /* QBContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBContactCell.m; sourceTree = "<group>"; };
+		A52B97241CF0C26200E9B1B6 /* QBContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QBContactCell.xib; sourceTree = "<group>"; };
+		A52B97281CF0C49B00E9B1B6 /* QBContactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBContactView.h; sourceTree = "<group>"; };
+		A52B97291CF0C49B00E9B1B6 /* QBContactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBContactView.m; sourceTree = "<group>"; };
+		A52B972B1CF0C4A600E9B1B6 /* QBContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QBContactView.xib; sourceTree = "<group>"; };
+		A553AE541D15655D00D04930 /* QBUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBUserCell.h; sourceTree = "<group>"; };
+		A553AE551D15655D00D04930 /* QBUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBUserCell.m; sourceTree = "<group>"; };
+		A553AE561D15655D00D04930 /* QBUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QBUserCell.xib; sourceTree = "<group>"; };
+		A553AE5A1D156BF000D04930 /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
+		A553AE5B1D156BF000D04930 /* tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tick@2x.png"; sourceTree = "<group>"; };
+		A553AE5E1D15933D00D04930 /* contactIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contactIcon.png; sourceTree = "<group>"; };
+		A553AE5F1D15933D00D04930 /* contactIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactIcon@2x.png"; sourceTree = "<group>"; };
+		A5B196931D0D8C0E00F81F9F /* QBContactLabelValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBContactLabelValue.h; sourceTree = "<group>"; };
+		A5B196941D0D8C0E00F81F9F /* QBContactLabelValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBContactLabelValue.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A52B96B61CF0889C00E9B1B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52B971A1CF0B05900E9B1B6 /* Contacts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52B96D21CF0889D00E9B1B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52B96DD1CF0889D00E9B1B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A509E2A11D0FEC5F00282A23 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				A509E2A21D0FEC8A00282A23 /* QBConnection.h */,
+				A509E2A31D0FEC8A00282A23 /* QBConnection.m */,
+				A509E2A51D0FF00900282A23 /* QBLoginConnection.h */,
+				A509E2A61D0FF00900282A23 /* QBLoginConnection.m */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		A52B96B01CF0889C00E9B1B6 = {
+			isa = PBXGroup;
+			children = (
+				A52B97191CF0B05900E9B1B6 /* Contacts.framework */,
+				A52B96BB1CF0889C00E9B1B6 /* QuickBackup */,
+				A52B96D81CF0889D00E9B1B6 /* QuickBackupTests */,
+				A52B96E31CF0889D00E9B1B6 /* QuickBackupUITests */,
+				A52B96BA1CF0889C00E9B1B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A52B96BA1CF0889C00E9B1B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A52B96B91CF0889C00E9B1B6 /* QuickBackup.app */,
+				A52B96D51CF0889D00E9B1B6 /* QuickBackupTests.xctest */,
+				A52B96E01CF0889D00E9B1B6 /* QuickBackupUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A52B96BB1CF0889C00E9B1B6 /* QuickBackup */ = {
+			isa = PBXGroup;
+			children = (
+				A553AE591D156BF000D04930 /* Images */,
+				A509E2A11D0FEC5F00282A23 /* Connection */,
+				A52B96BF1CF0889C00E9B1B6 /* AppDelegate.h */,
+				A52B96C01CF0889C00E9B1B6 /* AppDelegate.m */,
+				A52B970E1CF0A41900E9B1B6 /* QBAppContext.h */,
+				A52B970F1CF0A41900E9B1B6 /* QBAppContext.m */,
+				A52B97111CF0A48E00E9B1B6 /* QBAppSettings.h */,
+				A52B97121CF0A48E00E9B1B6 /* QBAppSettings.m */,
+				A52B97071CF0A35B00E9B1B6 /* Models */,
+				A52B97271CF0C48400E9B1B6 /* Custom Views */,
+				A52B96F61CF0A1ED00E9B1B6 /* Constants */,
+				A52B96FA1CF0A1ED00E9B1B6 /* Controllers */,
+				A52B97211CF0C21F00E9B1B6 /* TableViewCells */,
+				A52B96C51CF0889C00E9B1B6 /* Main.storyboard */,
+				A52B96CB1CF0889C00E9B1B6 /* Assets.xcassets */,
+				A52B96CD1CF0889D00E9B1B6 /* LaunchScreen.storyboard */,
+				A52B96D01CF0889D00E9B1B6 /* Info.plist */,
+				A52B96BC1CF0889C00E9B1B6 /* Supporting Files */,
+			);
+			path = QuickBackup;
+			sourceTree = "<group>";
+		};
+		A52B96BC1CF0889C00E9B1B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A52B96BD1CF0889C00E9B1B6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A52B96D81CF0889D00E9B1B6 /* QuickBackupTests */ = {
+			isa = PBXGroup;
+			children = (
+				A52B96D91CF0889D00E9B1B6 /* QuickBackupTests.m */,
+				A52B96DB1CF0889D00E9B1B6 /* Info.plist */,
+			);
+			path = QuickBackupTests;
+			sourceTree = "<group>";
+		};
+		A52B96E31CF0889D00E9B1B6 /* QuickBackupUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A52B96E41CF0889D00E9B1B6 /* QuickBackupUITests.m */,
+				A52B96E61CF0889D00E9B1B6 /* Info.plist */,
+			);
+			path = QuickBackupUITests;
+			sourceTree = "<group>";
+		};
+		A52B96F61CF0A1ED00E9B1B6 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A52B96F71CF0A1ED00E9B1B6 /* AppConstants.h */,
+				A52B96F81CF0A1ED00E9B1B6 /* AppConstants.m */,
+				A52B96F91CF0A1ED00E9B1B6 /* QuickBackup.pch */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A52B96FA1CF0A1ED00E9B1B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A50270B81CFF22E6006F3D93 /* QBBaseViewController.h */,
+				A50270B91CFF22E6006F3D93 /* QBBaseViewController.m */,
+				A52B96FC1CF0A1ED00E9B1B6 /* QBLoginViewController.h */,
+				A52B96FD1CF0A1ED00E9B1B6 /* QBLoginViewController.m */,
+				A50270B01CFF151B006F3D93 /* QBSignUpViewController.h */,
+				A50270B11CFF151B006F3D93 /* QBSignUpViewController.m */,
+				A52B96FB1CF0A1ED00E9B1B6 /* Admin */,
+				A52B96FE1CF0A1ED00E9B1B6 /* QBUser */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A52B96FB1CF0A1ED00E9B1B6 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				A52B97041CF0A2C200E9B1B6 /* QBAdminHomeViewController.h */,
+				A52B97051CF0A2C200E9B1B6 /* QBAdminHomeViewController.m */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		A52B96FE1CF0A1ED00E9B1B6 /* QBUser */ = {
+			isa = PBXGroup;
+			children = (
+				A52B97011CF0A22F00E9B1B6 /* QBUserHomeViewController.h */,
+				A52B97021CF0A22F00E9B1B6 /* QBUserHomeViewController.m */,
+			);
+			path = QBUser;
+			sourceTree = "<group>";
+		};
+		A52B97071CF0A35B00E9B1B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A52B970B1CF0A3B800E9B1B6 /* QBAppUser.h */,
+				A52B970C1CF0A3B800E9B1B6 /* QBAppUser.m */,
+				A52B971B1CF0BC7D00E9B1B6 /* QBContact.h */,
+				A52B971C1CF0BC7D00E9B1B6 /* QBContact.m */,
+				A5B196931D0D8C0E00F81F9F /* QBContactLabelValue.h */,
+				A5B196941D0D8C0E00F81F9F /* QBContactLabelValue.m */,
+				A509E2A81D1000B500282A23 /* QBPostalAddress.h */,
+				A509E2A91D1000B500282A23 /* QBPostalAddress.m */,
+				A509E2AB1D10099E00282A23 /* QBContactGroup.h */,
+				A509E2AC1D10099E00282A23 /* QBContactGroup.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A52B97211CF0C21F00E9B1B6 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A52B97221CF0C26200E9B1B6 /* QBContactCell.h */,
+				A52B97231CF0C26200E9B1B6 /* QBContactCell.m */,
+				A52B97241CF0C26200E9B1B6 /* QBContactCell.xib */,
+				A50270B31CFF15AE006F3D93 /* QBSignUpTableViewCell.h */,
+				A50270B41CFF15AE006F3D93 /* QBSignUpTableViewCell.m */,
+				A50270B61CFF15B9006F3D93 /* QBSignUpTableViewCell.xib */,
+				A553AE541D15655D00D04930 /* QBUserCell.h */,
+				A553AE551D15655D00D04930 /* QBUserCell.m */,
+				A553AE561D15655D00D04930 /* QBUserCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		A52B97271CF0C48400E9B1B6 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				A52B97281CF0C49B00E9B1B6 /* QBContactView.h */,
+				A52B97291CF0C49B00E9B1B6 /* QBContactView.m */,
+				A52B972B1CF0C4A600E9B1B6 /* QBContactView.xib */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		A553AE591D156BF000D04930 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A553AE5E1D15933D00D04930 /* contactIcon.png */,
+				A553AE5F1D15933D00D04930 /* contactIcon@2x.png */,
+				A553AE5A1D156BF000D04930 /* tick.png */,
+				A553AE5B1D156BF000D04930 /* tick@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A52B96B81CF0889C00E9B1B6 /* QuickBackup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52B96E91CF0889D00E9B1B6 /* Build configuration list for PBXNativeTarget "QuickBackup" */;
+			buildPhases = (
+				A52B96B51CF0889C00E9B1B6 /* Sources */,
+				A52B96B61CF0889C00E9B1B6 /* Frameworks */,
+				A52B96B71CF0889C00E9B1B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickBackup;
+			productName = QuickBackup;
+			productReference = A52B96B91CF0889C00E9B1B6 /* QuickBackup.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A52B96D41CF0889D00E9B1B6 /* QuickBackupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52B96EC1CF0889D00E9B1B6 /* Build configuration list for PBXNativeTarget "QuickBackupTests" */;
+			buildPhases = (
+				A52B96D11CF0889D00E9B1B6 /* Sources */,
+				A52B96D21CF0889D00E9B1B6 /* Frameworks */,
+				A52B96D31CF0889D00E9B1B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52B96D71CF0889D00E9B1B6 /* PBXTargetDependency */,
+			);
+			name = QuickBackupTests;
+			productName = QuickBackupTests;
+			productReference = A52B96D51CF0889D00E9B1B6 /* QuickBackupTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A52B96DF1CF0889D00E9B1B6 /* QuickBackupUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52B96EF1CF0889D00E9B1B6 /* Build configuration list for PBXNativeTarget "QuickBackupUITests" */;
+			buildPhases = (
+				A52B96DC1CF0889D00E9B1B6 /* Sources */,
+				A52B96DD1CF0889D00E9B1B6 /* Frameworks */,
+				A52B96DE1CF0889D00E9B1B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52B96E21CF0889D00E9B1B6 /* PBXTargetDependency */,
+			);
+			name = QuickBackupUITests;
+			productName = QuickBackupUITests;
+			productReference = A52B96E01CF0889D00E9B1B6 /* QuickBackupUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A52B96B11CF0889C00E9B1B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = QB;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Nagarro;
+				TargetAttributes = {
+					A52B96B81CF0889C00E9B1B6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = JZ7S3B426P;
+					};
+					A52B96D41CF0889D00E9B1B6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = A52B96B81CF0889C00E9B1B6;
+					};
+					A52B96DF1CF0889D00E9B1B6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = A52B96B81CF0889C00E9B1B6;
+					};
+				};
+			};
+			buildConfigurationList = A52B96B41CF0889C00E9B1B6 /* Build configuration list for PBXProject "QuickBackup" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A52B96B01CF0889C00E9B1B6;
+			productRefGroup = A52B96BA1CF0889C00E9B1B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A52B96B81CF0889C00E9B1B6 /* QuickBackup */,
+				A52B96D41CF0889D00E9B1B6 /* QuickBackupTests */,
+				A52B96DF1CF0889D00E9B1B6 /* QuickBackupUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A52B96B71CF0889C00E9B1B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52B96CF1CF0889D00E9B1B6 /* LaunchScreen.storyboard in Resources */,
+				A52B97261CF0C26200E9B1B6 /* QBContactCell.xib in Resources */,
+				A50270B71CFF15B9006F3D93 /* QBSignUpTableViewCell.xib in Resources */,
+				A553AE601D15933D00D04930 /* contactIcon.png in Resources */,
+				A52B972C1CF0C4A600E9B1B6 /* QBContactView.xib in Resources */,
+				A553AE611D15933D00D04930 /* contactIcon@2x.png in Resources */,
+				A553AE5D1D156BF000D04930 /* tick@2x.png in Resources */,
+				A52B96CC1CF0889C00E9B1B6 /* Assets.xcassets in Resources */,
+				A553AE581D15655D00D04930 /* QBUserCell.xib in Resources */,
+				A553AE5C1D156BF000D04930 /* tick.png in Resources */,
+				A52B96C71CF0889C00E9B1B6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52B96D31CF0889D00E9B1B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52B96DE1CF0889D00E9B1B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A52B96B51CF0889C00E9B1B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A509E2AA1D1000B500282A23 /* QBPostalAddress.m in Sources */,
+				A52B972A1CF0C49B00E9B1B6 /* QBContactView.m in Sources */,
+				A52B97251CF0C26200E9B1B6 /* QBContactCell.m in Sources */,
+				A509E2A71D0FF00900282A23 /* QBLoginConnection.m in Sources */,
+				A50270B21CFF151B006F3D93 /* QBSignUpViewController.m in Sources */,
+				A52B97031CF0A22F00E9B1B6 /* QBUserHomeViewController.m in Sources */,
+				A52B970D1CF0A3B800E9B1B6 /* QBAppUser.m in Sources */,
+				A52B97001CF0A1ED00E9B1B6 /* QBLoginViewController.m in Sources */,
+				A52B97131CF0A48E00E9B1B6 /* QBAppSettings.m in Sources */,
+				A52B97101CF0A41900E9B1B6 /* QBAppContext.m in Sources */,
+				A52B97061CF0A2C200E9B1B6 /* QBAdminHomeViewController.m in Sources */,
+				A52B96C11CF0889C00E9B1B6 /* AppDelegate.m in Sources */,
+				A553AE571D15655D00D04930 /* QBUserCell.m in Sources */,
+				A50270BA1CFF22E6006F3D93 /* QBBaseViewController.m in Sources */,
+				A509E2A41D0FEC8A00282A23 /* QBConnection.m in Sources */,
+				A52B96BE1CF0889C00E9B1B6 /* main.m in Sources */,
+				A52B971D1CF0BC7D00E9B1B6 /* QBContact.m in Sources */,
+				A5B196951D0D8C0E00F81F9F /* QBContactLabelValue.m in Sources */,
+				A509E2AD1D10099E00282A23 /* QBContactGroup.m in Sources */,
+				A50270B51CFF15AE006F3D93 /* QBSignUpTableViewCell.m in Sources */,
+				A52B96FF1CF0A1ED00E9B1B6 /* AppConstants.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52B96D11CF0889D00E9B1B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52B96DA1CF0889D00E9B1B6 /* QuickBackupTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52B96DC1CF0889D00E9B1B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52B96E51CF0889D00E9B1B6 /* QuickBackupUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A52B96D71CF0889D00E9B1B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A52B96B81CF0889C00E9B1B6 /* QuickBackup */;
+			targetProxy = A52B96D61CF0889D00E9B1B6 /* PBXContainerItemProxy */;
+		};
+		A52B96E21CF0889D00E9B1B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A52B96B81CF0889C00E9B1B6 /* QuickBackup */;
+			targetProxy = A52B96E11CF0889D00E9B1B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A52B96C51CF0889C00E9B1B6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A52B96C61CF0889C00E9B1B6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A52B96CD1CF0889D00E9B1B6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A52B96CE1CF0889D00E9B1B6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A52B96E71CF0889D00E9B1B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A52B96E81CF0889D00E9B1B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A52B96EA1CF0889D00E9B1B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QuickBackup/Constants/QuickBackup.pch;
+				INFOPLIST_FILE = QuickBackup/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nagarro.QuickBackup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		A52B96EB1CF0889D00E9B1B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QuickBackup/Constants/QuickBackup.pch;
+				INFOPLIST_FILE = QuickBackup/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nagarro.QuickBackup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		A52B96ED1CF0889D00E9B1B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = QuickBackupTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nagarro.QuickBackupTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickBackup.app/QuickBackup";
+			};
+			name = Debug;
+		};
+		A52B96EE1CF0889D00E9B1B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = QuickBackupTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nagarro.QuickBackupTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickBackup.app/QuickBackup";
+			};
+			name = Release;
+		};
+		A52B96F01CF0889D00E9B1B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = QuickBackupUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nagarro.QuickBackupUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = QuickBackup;
+			};
+			name = Debug;
+		};
+		A52B96F11CF0889D00E9B1B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = QuickBackupUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nagarro.QuickBackupUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = QuickBackup;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A52B96B41CF0889C00E9B1B6 /* Build configuration list for PBXProject "QuickBackup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52B96E71CF0889D00E9B1B6 /* Debug */,
+				A52B96E81CF0889D00E9B1B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52B96E91CF0889D00E9B1B6 /* Build configuration list for PBXNativeTarget "QuickBackup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52B96EA1CF0889D00E9B1B6 /* Debug */,
+				A52B96EB1CF0889D00E9B1B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52B96EC1CF0889D00E9B1B6 /* Build configuration list for PBXNativeTarget "QuickBackupTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52B96ED1CF0889D00E9B1B6 /* Debug */,
+				A52B96EE1CF0889D00E9B1B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52B96EF1CF0889D00E9B1B6 /* Build configuration list for PBXNativeTarget "QuickBackupUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52B96F01CF0889D00E9B1B6 /* Debug */,
+				A52B96F11CF0889D00E9B1B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A52B96B11CF0889C00E9B1B6 /* Project object */;
+}
