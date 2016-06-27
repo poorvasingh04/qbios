@@ -26,7 +26,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="GOt-cx-lOs"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="25"/>
+                        <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="20"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>

@@ -41,7 +41,7 @@
         NSMutableArray *emailIds = [NSMutableArray array];
         
         for (NSDictionary *dict in dictionary[@"emailAddresses"]) {
-            QBContactLabelValue *labelValue = [[QBContactLabelValue alloc] initWithDictionary:dict];
+            QBContactLabelValue *labelValue = [[QBContactLabelValue alloc] initWithDictionary:@{@"label": @"", @"value" : dict[@"value"]}];
             [emailIds addObject:labelValue];
         }
         
@@ -83,6 +83,12 @@
 
 - (CNMutableContact*)mutableContact {
     CNMutableContact *contact = self.deviceContact ? self.deviceContact : [[CNMutableContact alloc] init];
+    [self updateContactData:contact];
+    
+    return contact;
+}
+
+- (void)updateContactData:(CNMutableContact*)contact {
     contact.givenName = self.firstName;
     contact.familyName = self.lastName;
     contact.organizationName = self.company;
@@ -96,7 +102,7 @@
     
     NSMutableArray *emailIds = [NSMutableArray array];
     for (QBContactLabelValue *labelValue in self.emailAddresses) {
-        CNLabeledValue *label = [[CNLabeledValue alloc] initWithLabel:labelValue.label value:labelValue.value];
+        CNLabeledValue *label = [[CNLabeledValue alloc] initWithLabel:nil value:labelValue.value];
         [emailIds addObject:label];
     }
     
@@ -117,8 +123,6 @@
     }
     
     contact.postalAddresses = addresses;
-    
-    return contact;
 }
 
 @end

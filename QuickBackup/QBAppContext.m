@@ -33,10 +33,8 @@ static QBAppContext *instance;
     _currentUser = user;
     
     //save last logged in user
-    [[QBAppSettings sharedInstance] setLastLoggedInUser:user.token];
+    [[QBAppSettings sharedInstance] setLastLoggedInUser:user];
     
-    //set logout state
-    [[QBAppSettings sharedInstance] setPreviousUserLoggedOut:NO];
 }
 
 -(void)userDidLogout {

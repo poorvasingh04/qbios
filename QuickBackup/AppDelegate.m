@@ -19,18 +19,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    if ([QBAppSettings sharedInstance].lastLoggedInUser.length > 0) {
-        QBAppUser *currentUser = [QBAppContext sharedInstance].currentUser;
-        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        if (currentUser.userType == Admin) {
-            QBAdminHomeViewController *newRootViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"QBAdminHomeViewController"];
-            self.window.rootViewController = newRootViewController;
-            [self.window makeKeyAndVisible];
+    
+    id user = [QBAppSettings sharedInstance].lastLoggedInUser;
+    
+    if (user) {
+        
+        QBAppUser *currentUser = (QBAppUser*)user;
+        if (currentUser.token.length > 0) {
+            [QBAppSettings sharedInstance].isUserAlreadyLoggedIn = YES;
+            
+            [[QBAppContext sharedInstance] userDidLogin:currentUser];
+            
+            UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            if (currentUser.userType == Admin) {
+                UINavigationController *rootNavC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"QBAdminHomeNavController"];
+                
+                self.window.rootViewController = rootNavC;
+                [self.window makeKeyAndVisible];
+            } else {
+                UINavigationController *rootNavC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"QBUserHomeNavController"];
+                self.window.rootViewController = rootNavC;
+                [self.window makeKeyAndVisible];
+            }
         } else {
-            QBUserHomeViewController *newRootViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"QBUserHomeViewController"];
-            self.window.rootViewController = newRootViewController;
-            [self.window makeKeyAndVisible];
+            [QBAppSettings sharedInstance].isUserAlreadyLoggedIn = NO;
         }
+        
+
+    } else {
+        [QBAppSettings sharedInstance].isUserAlreadyLoggedIn = NO;
 
     }
     return YES;

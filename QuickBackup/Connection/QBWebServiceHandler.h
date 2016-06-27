@@ -1,5 +1,5 @@
 //
-//  QBConnection.h
+//  QBWebServiceHandler.h
 //  QuickBackup
 //
 //  Created by Nagarro on 6/14/16.
@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol QBConnectionDelegate <NSObject>
+@protocol QBWebServiceHandlerDelegate <NSObject>
 - (void)connection:(NSInteger)connectionTag successfulWithResponse:(NSDictionary*)response;
 - (void)connection:(NSInteger)connectionTag failedWithResponse:(NSString*)error;
 
 @end
 
-@interface QBConnection : NSObject
+@interface QBWebServiceHandler : NSObject
 
 @property(nonatomic, strong) NSString *procedureName;
 @property(nonatomic, strong) NSDictionary *parameters;
 @property(nonatomic, assign) NSInteger connectionTag;
 
-@property(nonatomic, weak)id <QBConnectionDelegate> delegate;
+@property(nonatomic, weak)id <QBWebServiceHandlerDelegate> delegate;
 - (void)connect;
 @end

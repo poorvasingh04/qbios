@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "QBBaseViewController.h"
 
-@interface QBUserHomeViewController : QBBaseViewController<QBConnectionDelegate>
+@interface QBUserHomeViewController : QBBaseViewController<QBWebServiceHandlerDelegate>
 @end

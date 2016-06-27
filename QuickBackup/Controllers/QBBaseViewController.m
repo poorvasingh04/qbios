@@ -30,10 +30,10 @@
 - (void)setShowActivityIndicator:(BOOL)showActivityIndicator {
     _showActivityIndicator = showActivityIndicator;
     if (_showActivityIndicator) {
-        _loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+        _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height)];
+        _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         _loadingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
         _indicatorView.frame = CGRectMake(_loadingView.center.x-50, _loadingView.center.y-50, 100, 100);
-        _indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
         [_loadingView addSubview:_indicatorView];
         [[UIApplication sharedApplication].keyWindow addSubview:_loadingView];
         [_indicatorView startAnimating];

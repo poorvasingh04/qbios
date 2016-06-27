@@ -11,9 +11,10 @@
 @interface QBAppSettings : NSObject
 + (QBAppSettings*) sharedInstance;
 
-- (NSString*) lastLoggedInUser;
-- (void) setLastLoggedInUser:(NSString*)username;
+@property(nonatomic, assign) BOOL isUserAlreadyLoggedIn;
 
--(BOOL)previousUserLoggedOut;
+- (QBAppUser*) lastLoggedInUser;
+- (void) setLastLoggedInUser:(QBAppUser*)user;
+
 -(void)setPreviousUserLoggedOut:(BOOL)previousUserLoggedOut;
 @end

@@ -16,7 +16,7 @@
 #import <Contacts/Contacts.h>
 #import "QBAppContext.h"
 #import "QBContact.h"
-#import "QBConnection.h"
+#import "QBWebServiceHandler.h"
 #import "QBAppSettings.h"
 
 #endif /* QuickBackup_pch */

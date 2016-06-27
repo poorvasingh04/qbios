@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "QBBaseViewController.h"
 
-@interface QBLoginViewController : QBBaseViewController<QBConnectionDelegate>
+@interface QBLoginViewController : QBBaseViewController<QBWebServiceHandlerDelegate>
 
 
 @end

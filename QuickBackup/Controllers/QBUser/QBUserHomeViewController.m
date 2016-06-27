@@ -9,6 +9,7 @@
 #import "QBUserHomeViewController.h"
 #import "QBContact.h"
 #import "QBContactGroup.h"
+#import "QBLoginViewController.h"
 
 #define CONNECTION_TAG_BACKUP 1001
 #define CONNECTION_TAG_FETCH_BY_ID 1002
@@ -22,6 +23,10 @@
     CNContactStore *_addressbook;
     NSArray *_keysToFetch;
     NSInteger _operationCount;
+    IBOutlet UIButton *_logoutButton;
+    IBOutlet UIButton *_backupButton;
+    IBOutlet UIButton *_restoreButton;
+
 }
 
 @end
@@ -42,14 +47,23 @@
     }
    
     self.title = [NSString stringWithFormat:@"Welcome %@!", [QBAppContext sharedInstance].currentUser.firstName];
+    
+    _backupButton.layer.borderColor = [UIColor grayColor].CGColor;
+    _backupButton.layer.cornerRadius = 2.0f;
+    _restoreButton.layer.borderColor = [UIColor grayColor].CGColor;
+    _restoreButton.layer.cornerRadius = 2.0f;
+    _logoutButton.exclusiveTouch = YES;
+    _backupButton.exclusiveTouch = YES;
+    _restoreButton.exclusiveTouch = YES;
 
 }
 
 
 #pragma mark - IBActions
 - (IBAction)backupButtonAction:(id)sender {
-    
-    QBConnection *connection = [[QBConnection alloc] init];
+    self.showActivityIndicator = YES;
+
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
     connection.delegate = self;
     connection.procedureName = @"backupContacts";
     connection.connectionTag = CONNECTION_TAG_BACKUP;
@@ -61,7 +75,8 @@
 }
 
 - (IBAction)restoreButtonAction:(id)sender {
-    QBConnection *connection = [[QBConnection alloc] init];
+    self.showActivityIndicator = YES;
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
     connection.delegate = self;
     connection.procedureName = @"fetchContactsById";
     connection.connectionTag = CONNECTION_TAG_FETCH_BY_ID;
@@ -71,13 +86,31 @@
 }
 
 - (IBAction)logoutButtonAction:(id)sender {
-    QBConnection *connection = [[QBConnection alloc] init];
-    connection.delegate = self;
-    connection.procedureName = @"logout";
-    connection.connectionTag = CONNECTION_TAG_LOGOUT;
-    connection.parameters = @{@"token":[QBAppContext sharedInstance].currentUser.token};
-    [connection connect];
+    if ([QBAppContext sharedInstance].currentUser) {
+        self.showActivityIndicator = YES;
+        
+        QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
+        connection.delegate = self;
+        connection.procedureName = @"logout";
+        connection.connectionTag = CONNECTION_TAG_LOGOUT;
+        connection.parameters = @{@"token":[QBAppContext sharedInstance].currentUser.token};
+        [connection connect];
+    } else {
+        [self dismissCurrentPage];
+    }
     
+}
+
+- (void)dismissCurrentPage {
+    if ([QBAppSettings sharedInstance].isUserAlreadyLoggedIn) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        QBLoginViewController *rootViewController = (QBLoginViewController*)[storyboard instantiateViewControllerWithIdentifier:@"QBLoginViewController"];
+        [[UIApplication sharedApplication].keyWindow setRootViewController:rootViewController];
+        
+    }
+    else {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 - (NSArray*)fetchContactsFromDeviceToDictionary:(BOOL)convertToDictionary {
@@ -155,7 +188,8 @@
         //Logout
         self.showActivityIndicator = NO;
         [[QBAppContext sharedInstance] userDidLogout];
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+        
+        [self dismissCurrentPage];
         
     } else if (connectionTag == CONNECTION_TAG_UPDATE_ID) {
         self.showActivityIndicator = NO;
@@ -168,6 +202,8 @@
     }
     
 }
+
+
 
 - (void)connection:(NSInteger)connectionTag failedWithResponse:(NSString *)error {
     self.showActivityIndicator = NO;
@@ -212,6 +248,8 @@
                 //Contact found
                 [contact setValue:contactInServer.firstName forKey:CNContactGivenNameKey];
                 contactInServer.deviceContact = contact.mutableCopy;
+                [contactInServer updateContactData:contactInServer.deviceContact];
+                
                 [updatedContacts addObject:contactInServer];
                 
             } else {
@@ -220,7 +258,6 @@
             }
         }
         
-        [self initializeOperationQueue];
         [self saveContactsInDevice:nonMatchingContacts];
         [self updateContactsInDevice:updatedContacts];
         
@@ -238,63 +275,65 @@
 
 - (void) saveContactsInDevice:(NSArray*)contacts {
     _insertedContactsArray = [NSMutableArray array];
-//    dispatch_queue_t queue = dispatch_get_global_queue(0,0);
-//    dispatch_group_t group = dispatch_group_create();
-//    
-//    dispatch_group_async(group,queue,^{
-//        NSLog(@"Block 1");
-//        //run first NSOperation here
-//    });
-//    
-//    dispatch_group_async(group,queue,^{
-//        NSLog(@"Block 2");
-//        //run second NSOperation here
-//    });
-//    
-//    //or from for loop
-//   
-//    
-//    dispatch_group_notify(group,queue,^{
-//        NSLog(@"Final block");
-//        //hide progress indicator here
-//    });
-    // Create a new NSOperationQueue instance.
-    
+    NSError *error;
+    QBContact *faultyContact;
     for (QBContact *contact in contacts) {
-        // Create a new NSOperation object using the NSInvocationOperation subclass.
-        // Tell it to run the counterTask method.
-        _operationCount ++;
-        NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
-                                                                                selector:@selector(insertContactInDevice:)
-                                                                                  object:contact];
-        // Add the operation to the queue and let it to be executed.
-        [_operationQueue addOperation:operation];
+        error = [self insertContactInDevice:contact];
+        if (error) {
+            faultyContact = contact;
+            break;
+        }
     }
     
-//    for (NSOperation *operation in operationQueue.operations)
-//    {
-//        dispatch_group_async(group,queue,^{
-//            [operation start];
-//        });
-//    }
+    if (!error) {
+        self.showActivityIndicator = NO;
+        [self updateContactIdsInServerForContacts:_insertedContactsArray];
+        
+    } else if (faultyContact) {
+        self.showActivityIndicator = NO;
+        NSLog(@"Error while saving contact:\n%@\n%@", faultyContact.dictionary, error.localizedDescription);
+        [self showOKAlertWithMessage:error.localizedDescription];
+        
+    } else {
+        self.showActivityIndicator = NO;
+        NSLog(@"Error while saving contact:\n%@", error.localizedDescription);
+        [self showOKAlertWithMessage:error.localizedDescription];
+    }
+    
+    
    
 }
 
 - (void)updateContactsInDevice:(NSArray*)contacts {
+    NSError *error;
+    QBContact *faultyContact;
     for (QBContact *contact in contacts) {
-        _operationCount ++;
-        // Create a new NSOperation object using the NSInvocationOperation subclass.
-        // Tell it to run the counterTask method.
-        NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self
-                                                                                selector:@selector(updateContactInDevice:)
-                                                                                  object:contact];
-        // Add the operation to the queue and let it to be executed.
-        [_operationQueue addOperation:operation];
+         error = [self updateContactInDevice:contact];
+        if (error) {
+            faultyContact = contact;
+            break;
+        }
     }
+    
+    if (!error) {
+        self.showActivityIndicator = NO;
+        //All contacts inserted successfully
+        [self showOKAlertWithMessage:@"Contacts Restored successfully"];
 
+    } else if (faultyContact) {
+        self.showActivityIndicator = NO;
+        NSLog(@"Error while saving contact:\n%@\n%@", faultyContact.dictionary, error.localizedDescription);
+        [self showOKAlertWithMessage:error.localizedDescription];
+        
+    } else {
+        self.showActivityIndicator = NO;
+        NSLog(@"Error while saving contact:\n%@", error.localizedDescription);
+        [self showOKAlertWithMessage:error.localizedDescription];
+    }
+    
 }
 
-- (void)insertContactInDevice:(QBContact*)contact {
+- (NSError*)insertContactInDevice:(QBContact*)contact {
     
     CNSaveRequest *saveRequest = [[CNSaveRequest alloc] init];
     [saveRequest addContact:contact.mutableContact toContainerWithIdentifier:nil];
@@ -302,52 +341,40 @@
     [_addressbook executeSaveRequest:saveRequest error:&error];
     _operationCount --;
     
-    if (error) {
-        self.showActivityIndicator = NO;
-        [_operationQueue cancelAllOperations];
-
-        NSLog(@"Error while saving contact:\n%@", error.localizedDescription);
-        [self showOKAlertWithMessage:error.localizedDescription];
-        
-    } else if (_operationCount == 0) {
-        self.showActivityIndicator = NO;
-        [self updateContactIdsInServerForContacts:_insertedContactsArray];
-    } else {
+    if(!error) {
         [_insertedContactsArray addObject:@{@"contactId": contact.contactId, @"newContactId": contact.mutableContact.identifier}];
         contact.contactId = contact.mutableContact.identifier;
 
     }
+    
+    return error;
+
 }
 
 - (void)updateContactIdsInServerForContacts:(NSArray*)contacts {
-  
-    QBConnection *connection = [[QBConnection alloc] init];
-    connection.delegate = self;
-    connection.procedureName = @"updateContactIds";
-    connection.connectionTag = CONNECTION_TAG_UPDATE_ID;
-    connection.parameters = @{@"token":[QBAppContext sharedInstance].currentUser.token, @"contacts": contacts};
-    [connection connect];
+    if (_insertedContactsArray.count > 0) {
+        self.showActivityIndicator = YES;
+        QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
+        connection.delegate = self;
+        connection.procedureName = @"updateContactIds";
+        connection.connectionTag = CONNECTION_TAG_UPDATE_ID;
+        connection.parameters = @{@"token":[QBAppContext sharedInstance].currentUser.token, @"contacts": contacts};
+        [connection connect];
+    } else {
+        [self showOKAlertWithMessage:@"Contacts Restored successfully"];
+
+    }
+    
 }
 
-- (void)updateContactInDevice:(QBContact*)contact {
-    _operationCount --;
+- (NSError*)updateContactInDevice:(QBContact*)contact {
     
     CNSaveRequest *saveRequest = [[CNSaveRequest alloc] init];
     [saveRequest updateContact:contact.deviceContact];
     NSError *error;
     [_addressbook executeSaveRequest:saveRequest error:&error];
-    
-    if (error) {
-        [_operationQueue cancelAllOperations];
-        self.showActivityIndicator = NO;
-        NSLog(@"Error while saving contact:\n%@", error.localizedDescription);
-        [self showOKAlertWithMessage:error.localizedDescription];
-        
-    } else if (_operationCount == 0) {
-        self.showActivityIndicator = NO;
-        //All contacts inserted successfully
-        [self showOKAlertWithMessage:@"Contacts Restored successfully"];
-    }
+
+    return error;
 }
 
 @end

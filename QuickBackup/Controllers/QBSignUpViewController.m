@@ -101,7 +101,7 @@ typedef enum {
     [self.tableView endEditing:YES];
     self.showActivityIndicator = YES;
 
-    QBConnection *connection = [[QBConnection alloc] init];
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
     connection.delegate = self;
     connection.procedureName = @"signUp";
     connection.parameters = _user.dictionary;

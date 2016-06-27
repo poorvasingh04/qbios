@@ -17,7 +17,7 @@
 @property(nonatomic, strong) NSString *firstName;
 @property(nonatomic, strong) NSString *lastName;
 @property(nonatomic, strong) NSArray<QBContactLabelValue*> *phoneNumbersArray;
-@property(nonatomic, strong) NSArray<QBContactLabelValue*> *emailAddresses;
+@property(nonatomic, strong) NSArray<NSString*> *emailAddresses;
 @property(nonatomic, strong) NSArray<QBPostalAddress*> *addresses;
 @property(nonatomic, strong) NSString *company;
 @property(nonatomic, strong) NSString *createdTS;
@@ -29,4 +29,6 @@
 @property(nonatomic, strong, readonly) CNMutableContact *mutableContact;
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
+
+- (void)updateContactData:(CNMutableContact*)contact;
 @end

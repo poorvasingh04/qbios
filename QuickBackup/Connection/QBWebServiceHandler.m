@@ -1,17 +1,17 @@
 //
-//  QBConnection.m
+//  QBWebServiceHandler.m
 //  QuickBackup
 //
 //  Created by Nagarro on 6/14/16.
 //  Copyright © 2016 Nagarro. All rights reserved.
 //
 
-#import "QBConnection.h"
+#import "QBWebServiceHandler.h"
 
-static NSString * const kAppURL = @"https://poorva123.herokuapp.com";
-//static NSString * const kAppURL = @"http://192.168.0.100:5000";
+//static NSString * const kAppURL = @"https://poorva123.herokuapp.com";
+static NSString * const kAppURL = @"http://127.0.0.1:5000";
 
-@implementation QBConnection
+@implementation QBWebServiceHandler
 
 - (void)connect {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", kAppURL, _procedureName]];
@@ -81,15 +81,20 @@ static NSString * const kAppURL = @"https://poorva123.herokuapp.com";
 }
 
 - (void)callSuccessBlockWithDictionary:(NSDictionary*)dictionary {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(connection:successfulWithResponse:)]) {
-        [self.delegate connection:_connectionTag successfulWithResponse:dictionary];
-    }
+    dispatch_async(dispatch_get_main_queue(),  ^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(connection:successfulWithResponse:)]) {
+            [self.delegate connection:_connectionTag successfulWithResponse:dictionary];
+        }
+    });
+    
 }
 
 - (void)callFailureBlockWithError:(NSString*)error {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(connection: failedWithResponse:)]) {
-        [self.delegate connection:_connectionTag failedWithResponse:error];
-    }
+    dispatch_async(dispatch_get_main_queue(),  ^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(connection: failedWithResponse:)]) {
+            [self.delegate connection:_connectionTag failedWithResponse:error];
+        }
+    });
 }
 
 @end

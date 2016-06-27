@@ -9,6 +9,7 @@
 #import "QBAdminHomeViewController.h"
 #import "QBContactCell.h"
 #import "QBUserCell.h"
+#import "QBLoginViewController.h"
 
 #define USERS_TABLEVIEW_TAG 1001
 #define CONTACTS_TABLEVIEW_TAG 1002
@@ -16,8 +17,9 @@
 #define CONNECTION_TAG_DELETE_ALL 1003
 #define CONNECTION_TAG_DELETE_CONTACTS 1004
 #define CONNECTION_TAG_LOGOUT 1005
+#define CONNECTION_TAG_FETCH_CONTACT 1006
 
-@interface QBAdminHomeViewController ()<UITableViewDataSource, UITableViewDelegate, QBConnectionDelegate> {
+@interface QBAdminHomeViewController ()<UITableViewDataSource, UITableViewDelegate, QBWebServiceHandlerDelegate> {
     NSArray *_contactsArray;
     NSArray *_displayedUsersArray;
     IBOutlet NSLayoutConstraint *_usersTableHeightCN;
@@ -33,6 +35,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.showActivityIndicator = YES;
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
+    connection.connectionTag = CONNECTION_TAG_FETCH_CONTACT;
+    connection.delegate = self;
+    connection.procedureName = @"fetchRelatedContacts";
+    connection.parameters = @{@"token" : [QBAppContext sharedInstance].currentUser.token};
+    [connection connect];
+    
     _usersTableView.tag = USERS_TABLEVIEW_TAG;
     _contactsTableView.tag = CONTACTS_TABLEVIEW_TAG;
     
@@ -43,6 +54,10 @@
     _contactNameLabel.text = @"Please select a user.";
     self.title = [NSString stringWithFormat:@"Welcome %@!", [QBAppContext sharedInstance].currentUser.firstName];
     _deleteAllButton.hidden = YES;
+    
+    _deleteAllButton.layer.borderColor = [UIColor grayColor].CGColor;
+    _deleteAllButton.layer.cornerRadius = 2.0f;
+    _deleteAllButton.exclusiveTouch = YES;
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -133,7 +148,7 @@
 
 - (void)fetchDetailsForUser:(QBAppUser*)user {
     self.showActivityIndicator = YES;
-    QBConnection *connection = [[QBConnection alloc] init];
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
     connection.delegate = self;
     connection.procedureName = @"fetchAllContacts";
     connection.connectionTag = CONNECTION_TAG_FETCH_RELATED_CONTACTS;
@@ -141,7 +156,7 @@
     [connection connect];
 }
 
-#pragma mark QBConnectionDelegate methods
+#pragma mark QBWebServiceHandlerDelegate methods
 - (void)connection:(NSInteger)connectionTag successfulWithResponse:(NSDictionary *)response {
 
     if (connectionTag == CONNECTION_TAG_FETCH_RELATED_CONTACTS) {
@@ -185,8 +200,20 @@
         //Logout
         self.showActivityIndicator = NO;
         [[QBAppContext sharedInstance] userDidLogout];
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+        [self dismissCurrentPage];
+
         
+    } else if (connectionTag == CONNECTION_TAG_FETCH_CONTACT) {
+        NSMutableArray *contacts = [NSMutableArray array];
+        for (NSDictionary *dict in response[@"users"]) {
+            
+            QBAppUser *contact = [[QBAppUser alloc] initWithDictionary:dict];
+            [contacts addObject:contact];
+        }
+        _usersArray = contacts;
+        [_usersTableView reloadData];
+        self.showActivityIndicator = NO;
+
     }
 }
 
@@ -203,7 +230,7 @@
 
 - (IBAction)deleteAllAction:(id)sender {
     self.showActivityIndicator = YES;
-    QBConnection *connection = [[QBConnection alloc] init];
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
     connection.delegate = self;
     connection.procedureName = @"deleteContactsForUser";
     connection.connectionTag = CONNECTION_TAG_DELETE_ALL;
@@ -214,7 +241,7 @@
 - (void)deleteUserContact:(QBContact*)contact {
     self.showActivityIndicator = YES;
 
-    QBConnection *connection = [[QBConnection alloc] init];
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
     connection.delegate = self;
     connection.procedureName = @"deleteContacts";
     connection.connectionTag = CONNECTION_TAG_DELETE_CONTACTS;
@@ -223,7 +250,8 @@
 }
 
 - (IBAction)logoutButtonAction:(id)sender {
-    QBConnection *connection = [[QBConnection alloc] init];
+    self.showActivityIndicator = YES;
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
     connection.delegate = self;
     connection.procedureName = @"logout";
     connection.connectionTag = CONNECTION_TAG_LOGOUT;
@@ -231,5 +259,18 @@
     [connection connect];
     
 }
+
+- (void)dismissCurrentPage {
+    if ([QBAppSettings sharedInstance].isUserAlreadyLoggedIn) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        QBLoginViewController *rootViewController = (QBLoginViewController*)[storyboard instantiateViewControllerWithIdentifier:@"QBLoginViewController"];
+        [[UIApplication sharedApplication].keyWindow setRootViewController:rootViewController];
+        
+    }
+    else {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+    }
+}
+
 
 @end

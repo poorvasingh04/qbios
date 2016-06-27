@@ -11,10 +11,16 @@
 		A50270B51CFF15AE006F3D93 /* QBSignUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50270B41CFF15AE006F3D93 /* QBSignUpTableViewCell.m */; };
 		A50270B71CFF15B9006F3D93 /* QBSignUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50270B61CFF15B9006F3D93 /* QBSignUpTableViewCell.xib */; };
 		A50270BA1CFF22E6006F3D93 /* QBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50270B91CFF22E6006F3D93 /* QBBaseViewController.m */; };
-		A509E2A41D0FEC8A00282A23 /* QBConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2A31D0FEC8A00282A23 /* QBConnection.m */; };
-		A509E2A71D0FF00900282A23 /* QBLoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2A61D0FF00900282A23 /* QBLoginConnection.m */; };
+		A509E2A41D0FEC8A00282A23 /* QBWebServiceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2A31D0FEC8A00282A23 /* QBWebServiceHandler.m */; };
 		A509E2AA1D1000B500282A23 /* QBPostalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2A91D1000B500282A23 /* QBPostalAddress.m */; };
 		A509E2AD1D10099E00282A23 /* QBContactGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A509E2AC1D10099E00282A23 /* QBContactGroup.m */; };
+		A5221CDA1D20339F009390B3 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A5221CD81D20339F009390B3 /* logout.png */; };
+		A5221CDB1D20339F009390B3 /* logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5221CD91D20339F009390B3 /* logout@2x.png */; };
+		A5221CDE1D203636009390B3 /* backup.png in Resources */ = {isa = PBXBuildFile; fileRef = A5221CDC1D203636009390B3 /* backup.png */; };
+		A5221CDF1D203636009390B3 /* backup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5221CDD1D203636009390B3 /* backup@2x.png */; };
+		A5221CE71D211120009390B3 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = A5221CE41D211120009390B3 /* Icon-120.png */; };
+		A5221CE81D211120009390B3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5221CE51D211120009390B3 /* Icon.png */; };
+		A5221CE91D211120009390B3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5221CE61D211120009390B3 /* Icon@2x.png */; };
 		A52B96BE1CF0889C00E9B1B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B96BD1CF0889C00E9B1B6 /* main.m */; };
 		A52B96C11CF0889C00E9B1B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B96C01CF0889C00E9B1B6 /* AppDelegate.m */; };
 		A52B96C71CF0889C00E9B1B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52B96C51CF0889C00E9B1B6 /* Main.storyboard */; };
@@ -69,14 +75,19 @@
 		A50270B61CFF15B9006F3D93 /* QBSignUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QBSignUpTableViewCell.xib; sourceTree = "<group>"; };
 		A50270B81CFF22E6006F3D93 /* QBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBBaseViewController.h; sourceTree = "<group>"; };
 		A50270B91CFF22E6006F3D93 /* QBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBBaseViewController.m; sourceTree = "<group>"; };
-		A509E2A21D0FEC8A00282A23 /* QBConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBConnection.h; sourceTree = "<group>"; };
-		A509E2A31D0FEC8A00282A23 /* QBConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBConnection.m; sourceTree = "<group>"; };
-		A509E2A51D0FF00900282A23 /* QBLoginConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBLoginConnection.h; sourceTree = "<group>"; };
-		A509E2A61D0FF00900282A23 /* QBLoginConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBLoginConnection.m; sourceTree = "<group>"; };
+		A509E2A21D0FEC8A00282A23 /* QBWebServiceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBWebServiceHandler.h; sourceTree = "<group>"; };
+		A509E2A31D0FEC8A00282A23 /* QBWebServiceHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBWebServiceHandler.m; sourceTree = "<group>"; };
 		A509E2A81D1000B500282A23 /* QBPostalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPostalAddress.h; sourceTree = "<group>"; };
 		A509E2A91D1000B500282A23 /* QBPostalAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPostalAddress.m; sourceTree = "<group>"; };
 		A509E2AB1D10099E00282A23 /* QBContactGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBContactGroup.h; sourceTree = "<group>"; };
 		A509E2AC1D10099E00282A23 /* QBContactGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBContactGroup.m; sourceTree = "<group>"; };
+		A5221CD81D20339F009390B3 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		A5221CD91D20339F009390B3 /* logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout@2x.png"; sourceTree = "<group>"; };
+		A5221CDC1D203636009390B3 /* backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backup.png; sourceTree = "<group>"; };
+		A5221CDD1D203636009390B3 /* backup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backup@2x.png"; sourceTree = "<group>"; };
+		A5221CE41D211120009390B3 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
+		A5221CE51D211120009390B3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A5221CE61D211120009390B3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		A52B96B91CF0889C00E9B1B6 /* QuickBackup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickBackup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52B96BD1CF0889C00E9B1B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A52B96BF1CF0889C00E9B1B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -152,14 +163,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A509E2A11D0FEC5F00282A23 /* Connection */ = {
+		A509E2A11D0FEC5F00282A23 /* ServiceHandler */ = {
 			isa = PBXGroup;
 			children = (
-				A509E2A21D0FEC8A00282A23 /* QBConnection.h */,
-				A509E2A31D0FEC8A00282A23 /* QBConnection.m */,
-				A509E2A51D0FF00900282A23 /* QBLoginConnection.h */,
-				A509E2A61D0FF00900282A23 /* QBLoginConnection.m */,
+				A509E2A21D0FEC8A00282A23 /* QBWebServiceHandler.h */,
+				A509E2A31D0FEC8A00282A23 /* QBWebServiceHandler.m */,
 			);
+			name = ServiceHandler;
 			path = Connection;
 			sourceTree = "<group>";
 		};
@@ -188,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				A553AE591D156BF000D04930 /* Images */,
-				A509E2A11D0FEC5F00282A23 /* Connection */,
+				A509E2A11D0FEC5F00282A23 /* ServiceHandler */,
 				A52B96BF1CF0889C00E9B1B6 /* AppDelegate.h */,
 				A52B96C01CF0889C00E9B1B6 /* AppDelegate.m */,
 				A52B970E1CF0A41900E9B1B6 /* QBAppContext.h */,
@@ -324,6 +334,13 @@
 		A553AE591D156BF000D04930 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A5221CE41D211120009390B3 /* Icon-120.png */,
+				A5221CE51D211120009390B3 /* Icon.png */,
+				A5221CE61D211120009390B3 /* Icon@2x.png */,
+				A5221CDC1D203636009390B3 /* backup.png */,
+				A5221CDD1D203636009390B3 /* backup@2x.png */,
+				A5221CD81D20339F009390B3 /* logout.png */,
+				A5221CD91D20339F009390B3 /* logout@2x.png */,
 				A553AE5E1D15933D00D04930 /* contactIcon.png */,
 				A553AE5F1D15933D00D04930 /* contactIcon@2x.png */,
 				A553AE5A1D156BF000D04930 /* tick.png */,
@@ -441,13 +458,20 @@
 				A52B97261CF0C26200E9B1B6 /* QBContactCell.xib in Resources */,
 				A50270B71CFF15B9006F3D93 /* QBSignUpTableViewCell.xib in Resources */,
 				A553AE601D15933D00D04930 /* contactIcon.png in Resources */,
+				A5221CDB1D20339F009390B3 /* logout@2x.png in Resources */,
+				A5221CDE1D203636009390B3 /* backup.png in Resources */,
 				A52B972C1CF0C4A600E9B1B6 /* QBContactView.xib in Resources */,
 				A553AE611D15933D00D04930 /* contactIcon@2x.png in Resources */,
+				A5221CE91D211120009390B3 /* Icon@2x.png in Resources */,
+				A5221CE81D211120009390B3 /* Icon.png in Resources */,
 				A553AE5D1D156BF000D04930 /* tick@2x.png in Resources */,
 				A52B96CC1CF0889C00E9B1B6 /* Assets.xcassets in Resources */,
 				A553AE581D15655D00D04930 /* QBUserCell.xib in Resources */,
 				A553AE5C1D156BF000D04930 /* tick.png in Resources */,
 				A52B96C71CF0889C00E9B1B6 /* Main.storyboard in Resources */,
+				A5221CDF1D203636009390B3 /* backup@2x.png in Resources */,
+				A5221CE71D211120009390B3 /* Icon-120.png in Resources */,
+				A5221CDA1D20339F009390B3 /* logout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +499,6 @@
 				A509E2AA1D1000B500282A23 /* QBPostalAddress.m in Sources */,
 				A52B972A1CF0C49B00E9B1B6 /* QBContactView.m in Sources */,
 				A52B97251CF0C26200E9B1B6 /* QBContactCell.m in Sources */,
-				A509E2A71D0FF00900282A23 /* QBLoginConnection.m in Sources */,
 				A50270B21CFF151B006F3D93 /* QBSignUpViewController.m in Sources */,
 				A52B97031CF0A22F00E9B1B6 /* QBUserHomeViewController.m in Sources */,
 				A52B970D1CF0A3B800E9B1B6 /* QBAppUser.m in Sources */,
@@ -486,7 +509,7 @@
 				A52B96C11CF0889C00E9B1B6 /* AppDelegate.m in Sources */,
 				A553AE571D15655D00D04930 /* QBUserCell.m in Sources */,
 				A50270BA1CFF22E6006F3D93 /* QBBaseViewController.m in Sources */,
-				A509E2A41D0FEC8A00282A23 /* QBConnection.m in Sources */,
+				A509E2A41D0FEC8A00282A23 /* QBWebServiceHandler.m in Sources */,
 				A52B96BE1CF0889C00E9B1B6 /* main.m in Sources */,
 				A52B971D1CF0BC7D00E9B1B6 /* QBContact.m in Sources */,
 				A5B196951D0D8C0E00F81F9F /* QBContactLabelValue.m in Sources */,

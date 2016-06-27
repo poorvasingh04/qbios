@@ -32,7 +32,7 @@
     [super viewDidLoad];
     _loginButton.enabled = NO;
     _scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-    
+    _loginButton.layer.cornerRadius = 2.0f;
 }
 
 - (void)updateLoginButtonState {
@@ -84,7 +84,7 @@
     self.showActivityIndicator = YES;
 
     NSDictionary *dict = @{@"userId" : _userName, @"password": _password};
-    QBConnection *connection = [[QBConnection alloc] init];
+    QBWebServiceHandler *connection = [[QBWebServiceHandler alloc] init];
     connection.connectionTag = CONNECTION_TAG_LOGIN;
     connection.delegate = self;
     connection.procedureName = @"login";
@@ -101,16 +101,12 @@
         [[QBAppContext sharedInstance] userDidLogin:user];
         
         if (user.userType == Admin) {
+            _passwordTxt.text = @"";
             //Admin
-            self.showActivityIndicator = YES;
-            QBConnection *connection = [[QBConnection alloc] init];
-            connection.connectionTag = CONNECTION_TAG_FETCH_CONTACT;
-            connection.delegate = self;
-            connection.procedureName = @"fetchRelatedContacts";
-            connection.parameters = @{@"token" : [QBAppContext sharedInstance].currentUser.token};
-            [connection connect];
+            [self performSegueWithIdentifier:@"qbAdminHomeSegue" sender:nil];
             
         } else {
+            _passwordTxt.text = @"";
             [self performSegueWithIdentifier:@"qbUserHomeSegue" sender:nil];
 
         }
@@ -138,13 +134,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"qbAdminHomeSegue"]) {
         
-        UINavigationController *navController = segue.destinationViewController;
-        QBAdminHomeViewController *controller = (QBAdminHomeViewController*) navController.topViewController;
-        controller.usersArray = sender;
         
     } else if ([segue.identifier isEqualToString:@"qbUserHomeSegue"]) {
-        UINavigationController *navController = segue.destinationViewController;
-        QBUserHomeViewController *controller = (QBUserHomeViewController*) navController.topViewController;
+
 
     }
 }

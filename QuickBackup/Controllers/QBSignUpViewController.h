@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "QBBaseViewController.h"
 
-@interface QBSignUpViewController : QBBaseViewController<QBConnectionDelegate>
+@interface QBSignUpViewController : QBBaseViewController<QBWebServiceHandlerDelegate>
 @property(nonatomic, strong) IBOutlet UITableView *tableView;
 @end
